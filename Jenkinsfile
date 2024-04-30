@@ -5,10 +5,31 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Python code'
-                sh 'main.py'
+                // No build steps required for this Python script
             }
         }
-        // Other stages...
+        stage('Test') {
+            steps {
+                echo 'Testing the Python code'
+                sh 'python my_script.py'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the Python code'
+                // No deployment steps required for this Python script
+            }
+        }
     }
-    // Post-build actions...
+
+    post {
+        success {
+            echo 'Pipeline successful'
+            // Add any post-build actions here
+        }
+        failure {
+            echo 'Pipeline failed'
+            // Add any actions to take on failure here
+        }
+    }
 }
