@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing the Python code'
-                sh 'python my_script.py'
+                sh 'main.py'
             }
         }
         stage('Deploy') {
